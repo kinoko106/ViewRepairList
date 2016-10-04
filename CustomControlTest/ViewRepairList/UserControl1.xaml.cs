@@ -23,6 +23,7 @@ namespace ViewRepairList
         public UserControl1()
         {
             InitializeComponent();
+            //おれだおれだおれだおれだ
         }
     }
 }
