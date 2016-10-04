@@ -1,6 +1,7 @@
 ﻿using Grabacr07.KanColleViewer.Composition;
 using Grabacr07.KanColleWrapper;
 using Grabacr07.KanColleWrapper.Models.Raw;
+using Grabacr07.KanColleWrapper.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
