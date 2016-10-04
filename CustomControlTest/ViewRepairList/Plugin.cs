@@ -23,7 +23,6 @@ namespace ViewRepairList
     {
         public void Initialize()
         {
-
             //KanColleClient.Current.Proxy.api_port.TryParse<kcsapi_port>().Select(x => x.Data.api_material).Subscribe(x => materialSubscribe(x));
         }
 
