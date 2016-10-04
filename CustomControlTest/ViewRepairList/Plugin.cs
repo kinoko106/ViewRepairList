@@ -27,7 +27,6 @@ namespace ViewRepairList
             //KanColleClient.Current.Proxy.api_port.TryParse<kcsapi_port>().Select(x => x.Data.api_material).Subscribe(x => materialSubscribe(x));
         }
 
-        //public string Guid => "id";
         public string Name => "Rapair List";
         public object View => new UserControl1();
     }
