@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:ViewRepairList"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="改修リスト"/>
+        <TextBlock Text="とりあえずテキスト表示"/>
+        <DataGrid Name="RepairList" />
+    </StackPanel>
 </UserControl>
