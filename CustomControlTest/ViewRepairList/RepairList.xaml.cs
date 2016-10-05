@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace ViewRepairList
 {
     /// <summary>
-    /// UserControl1.xaml の相互作用ロジック
+    /// RepairList.xaml の相互作用ロジック
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class RepairList : UserControl
     {
-        public UserControl1()
+        public RepairList()
         {
             InitializeComponent();
-            //おれだおれだおれだおれだ
         }
     }
 }
