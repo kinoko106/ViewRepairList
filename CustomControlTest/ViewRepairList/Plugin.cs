@@ -2,6 +2,7 @@
 using Grabacr07.KanColleWrapper;
 using Grabacr07.KanColleWrapper.Models.Raw;
 using Grabacr07.KanColleWrapper.Models;
+using Grabacr07.KanColleViewer.Controls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,9 +23,33 @@ namespace ViewRepairList
     [ExportMetadata("Author", "@kinoko")]
     class Plugin : IPlugin, ITool
     {
+        public string exepath { get; private set; }
+        public string exeFullPath { get; private set; }
+        public string startupPath { get; private set; }
+
         public void Initialize()
         {
-            
+        }
+
+        public string GetKanmusuName(int num)
+        {
+            //var ships = KanColleClient.Current.Master.Ships.Values.ToList();
+            //return ships[num].Name;
+            return "";
+        }
+
+        public int GetKanmusuId(int num)
+        {
+            //var ships = KanColleClient.Current.Master.Ships.Values.ToList();
+            //return ships[num].Id;
+            return 0;
+        }
+
+        public void GetAppPath()
+        {
+            exepath = Environment.GetCommandLineArgs()[0];
+            exeFullPath = System.IO.Path.GetFullPath(exepath);
+            startupPath = System.IO.Path.GetDirectoryName(exeFullPath);
         }
 
         public string Name => "Rapair List";

@@ -36,6 +36,8 @@ namespace ViewRepairList
             DevelopCost = new Dictionary<int, int>();
             ScrewCost = new Dictionary<int, int>();
             EquipCost = new Dictionary<int, int>();
+
+            
         }
         public string EquipId { get; set; }      //装備ID
         public string Name { get; set; }    //装備名

@@ -24,7 +24,6 @@ namespace CustomControlTest
         public MainWindow()
         {
             InitializeComponent();
-
         }
     }
 }

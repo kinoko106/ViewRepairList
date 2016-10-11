@@ -8,5 +8,23 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
         <DataGrid Name="RepairList1"/>
+        <StackPanel x:Name="rootStackPanel" Orientation="Horizontal" >
+            <StackPanel>
+                <Label x:Name="Path" Content="Path:" Height="30" />
+                <Label x:Name="FullPath" Content="FullPath:" Height="30"/>
+                <Label x:Name="StartUpPath" Content="StartUpPath:" Height="30"/>
+                <Label x:Name="PluginUpPath" Content="PluginUpPath:" Height="30"/>
+                <Label x:Name="KanmusuName" Content="Name:" Height="30"/>
+                <Label x:Name="KanmusuId" Content="ID:" Height="30"/>
+            </StackPanel>
+            <StackPanel>
+                <Label x:Name="label1" Content="{Binding text1}" Height="30"/>
+                <Label x:Name="label2" Content="{Binding text2}" Height="30"/>
+                <Label x:Name="label3" Content="{Binding text3}" Height="30"/>
+                <Label x:Name="label4" Content="{Binding text4}" Height="30"/>
+                <Label x:Name="label5" Content="{Binding Name}" Height="30"/>
+                <Label x:Name="label6" Content="{Binding ID}" Height="30"/>
+            </StackPanel>
+        </StackPanel>
     </StackPanel>
 </UserControl>
