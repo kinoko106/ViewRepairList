@@ -125,6 +125,9 @@
     <Compile Include="RepairList.xaml.cs">
       <DependentUpon>RepairList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="repairListWindow.xaml.cs">
+      <DependentUpon>repairListWindow.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -157,6 +160,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="RepairList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="repairListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

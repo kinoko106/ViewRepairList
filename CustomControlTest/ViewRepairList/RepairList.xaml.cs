@@ -25,50 +25,66 @@ namespace ViewRepairList
     /// </summary>
     public partial class RepairList : UserControl
     {
+        repairListWindow win = new repairListWindow();
+
         public RepairList()
         {
             InitializeComponent();
 
             //アイコンを探しています・・・
-            AppIcon icn = new AppIcon();
-            SlotItemIcon icons = new SlotItemIcon();
-            double d = icons.ActualHeight;
+            //AppIcon icn = new AppIcon();
+            //SlotItemIcon icons = new SlotItemIcon();
+            //icons.BeginInit();
+            //icons.Visibility = Visibility.Visible;
+            //double d = icons.ActualHeight;
+            var master = KanColleClient.Current.Master.SlotItems;
+            SlotItemIcon icon = new SlotItemIcon();
+            var info = master[10];
 
-            Plugin p = new Plugin();
-            p.GetAppPath();
+            DataContext = new { Icon1 = info.IconType };
+            //Plugin p = new Plugin();
+            //p.GetAppPath();
 
-            string name = p.GetKanmusuName(0);
-            int id = p.GetKanmusuId(0);
-            string pluginPath = p.startupPath + "\\Plugin\\";
+            //string name = p.GetKanmusuName(0);
+            //int id = p.GetKanmusuId(0);
+            //string pluginPath = p.startupPath + "\\Plugin\\";
 
-            DataContext = new
-            {
-                text1 = d,
-                Name = name,
-                ID = id
-            };
+            //DataContext = new
+            //{
+            //    Name = name,
+            //};
 
             //StackPanelの入れ子で表を表現？
             //横軸:Equipクラスメンバの数 または表示したい行の数
             //縦軸:装備数 List<Equip>のLength
 
-            StackPanel r = this.rootStackPanel;
+            //StackPanel r = this.rootStackPanel;
 
-            StackPanel sp = new StackPanel();
-            sp.Name = "StackPanel1";
-            sp.Orientation = Orientation.Horizontal;
-            sp.Width = 100;
-            sp.Height = 30;
+            //StackPanel sp = new StackPanel();
+            //sp.Name = "StackPanel1";
+            //sp.Orientation = Orientation.Horizontal;
+            //sp.Width = 100;
+            //sp.Height = 30;
 
-            Border borderline = new Border();
-            borderline.BorderBrush = Brushes.Black;
-            borderline.Padding = new Thickness(5, 5, 5, 5);
-            borderline.BorderThickness = new Thickness(5, 5, 5, 5);
-            sp.Children.Add(borderline);
+            //Border borderline = new Border();
+            //borderline.BorderBrush = Brushes.Black;
+            //borderline.Padding = new Thickness(5, 5, 5, 5);
+            //borderline.BorderThickness = new Thickness(5, 5, 5, 5);
+            //sp.Children.Add(borderline);
 
-            sp.Visibility = Visibility.Visible;
+            //sp.Visibility = Visibility.Visible;
+            //r.Children.Add(sp);
+        }
 
-            r.Children.Add(sp);
+        private void open_repairList(object sender, RoutedEventArgs e)
+        {
+            if (win.IsLoaded == false)
+            {
+                win.Show();
+            }else
+            {
+                win.Activate();
+            }
         }
     }
 }

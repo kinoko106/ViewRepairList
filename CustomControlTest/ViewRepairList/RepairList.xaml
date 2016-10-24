@@ -4,27 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ViewRepairList"
+             xmlns:controls="http://schemes.grabacr.net/winfx/2015/kancolleviewer/controls"
+             xmlns:contents="http://schemes.grabacr.net/winfx/2014/controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel>
-        <DataGrid Name="RepairList1"/>
-        <StackPanel x:Name="rootStackPanel" Orientation="Horizontal" >
-            <StackPanel>
-                <Label x:Name="Path" Content="Path:" Height="30" />
-                <Label x:Name="FullPath" Content="FullPath:" Height="30"/>
-                <Label x:Name="StartUpPath" Content="StartUpPath:" Height="30"/>
-                <Label x:Name="PluginUpPath" Content="PluginUpPath:" Height="30"/>
-                <Label x:Name="KanmusuName" Content="Name:" Height="30"/>
-                <Label x:Name="KanmusuId" Content="ID:" Height="30"/>
-            </StackPanel>
-            <StackPanel>
-                <Label x:Name="label1" Content="{Binding text1}" Height="30"/>
-                <Label x:Name="label2" Content="{Binding text2}" Height="30"/>
-                <Label x:Name="label3" Content="{Binding text3}" Height="30"/>
-                <Label x:Name="label4" Content="{Binding text4}" Height="30"/>
-                <Label x:Name="label5" Content="{Binding Name}" Height="30"/>
-                <Label x:Name="label6" Content="{Binding ID}" Height="30"/>
-            </StackPanel>
-        </StackPanel>
+    <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Button x:Name="openWindow" Content="改修リスト" Width="100" Height="20" Click="open_repairList"/>
+        <controls:SlotItemIcon Type="{Binding Icon1}"/>
     </StackPanel>
 </UserControl>

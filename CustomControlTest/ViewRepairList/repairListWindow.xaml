@@ -1,0 +1,55 @@
+﻿<Window x:Class="ViewRepairList.repairListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ViewRepairList"
+        mc:Ignorable="d"
+        Title="repairListWindow" Height="600" Width="800">
+    <StackPanel Margin="10,10,10,10" Orientation="Vertical">
+        <!--#region フィルター-->
+        <StackPanel x:Name="title">
+            <Label x:Name="titleLabel" Content="改修リスト" Height="24"/>
+        </StackPanel>
+        <WrapPanel Orientation="Horizontal">
+            <StackPanel>
+                <Label x:Name="subtitle" Content="分類:"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <WrapPanel x:Name="Filter1">
+                    <CheckBox x:Name="small" Content="小口径" />
+                    <CheckBox x:Name="middle" Content="中口径" />
+                    <CheckBox x:Name="large" Content="大口径" />
+                    <CheckBox x:Name="sub" Content="副砲" />
+                    <CheckBox x:Name="torped" Content="魚雷" />
+                    <CheckBox x:Name="koukaku" Content="高角砲" />
+                    <CheckBox x:Name="kansen" Content="艦戦" />
+                    <CheckBox x:Name="kanbaku" Content="艦爆" />
+                    <CheckBox x:Name="kankou" Content="艦攻" />
+                    <CheckBox x:Name="teisatu" Content="偵察機" />
+                    <CheckBox x:Name="dentan" Content="電探" />
+                    <CheckBox x:Name="sonar" Content="ソナー" />
+                    <CheckBox x:Name="bakurai" Content="爆雷" />
+                    <CheckBox x:Name="tekkou" Content="徹甲弾" />
+                    <CheckBox x:Name="kiju" Content="機銃" />
+                    <CheckBox x:Name="kousya" Content="高射装置" />
+                    <CheckBox x:Name="sentei" Content="上陸用舟艇" />
+                    <CheckBox x:Name="tansyo" Content="探照灯" />
+                </WrapPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="syuhouB" Content="主砲" />
+                    <Button x:Name="hukuhouB" Content="副砲" />
+                </StackPanel>
+            </StackPanel>
+        </WrapPanel>
+        <!--#endregion-->
+        
+        <!--#region フィルター2-->
+
+        <!--#endregion-->
+
+        <!--#region 改修装備リスト-->
+
+        <!--#endregion-->
+    </StackPanel>
+</Window>
