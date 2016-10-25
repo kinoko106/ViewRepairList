@@ -37,11 +37,10 @@ namespace ViewRepairList
             //icons.BeginInit();
             //icons.Visibility = Visibility.Visible;
             //double d = icons.ActualHeight;
-            var master = KanColleClient.Current.Master.SlotItems;
-            SlotItemIcon icon = new SlotItemIcon();
-            var info = master[10];
+            //var master = KanColleClient.Current.Master.SlotItems;
+            //var info = master[10];
 
-            DataContext = new { Icon1 = info.IconType };
+            //DataContext = new { Icon1 = info.IconType };
             //Plugin p = new Plugin();
             //p.GetAppPath();
 

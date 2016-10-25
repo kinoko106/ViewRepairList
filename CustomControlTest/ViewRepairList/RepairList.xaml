@@ -10,6 +10,8 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
         <Button x:Name="openWindow" Content="改修リスト" Width="100" Height="20" Click="open_repairList"/>
+        <!--
         <controls:SlotItemIcon Type="{Binding Icon1}"/>
+        -->
     </StackPanel>
 </UserControl>

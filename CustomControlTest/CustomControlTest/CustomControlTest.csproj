@@ -38,28 +38,77 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="KanColleViewer.Composition, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KanColleViewer.Composition.1.4.0\lib\net45\KanColleViewer.Composition.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KanColleViewer.Controls, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KanColleViewer.Controls.1.3.2\lib\net46\KanColleViewer.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KanColleViewer.PluginAnalyzer, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KanColleViewer.PluginAnalyzer.1.1.1.0\lib\net46\KanColleViewer.PluginAnalyzer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KanColleWrapper, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KanColleWrapper.1.6.1\lib\net46\KanColleWrapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Livet, Version=1.3.0.0, Culture=neutral, PublicKeyToken=b0b1d3f711ef38cb, processorArchitecture=MSIL">
       <HintPath>..\packages\LivetCask.1.3.1.0\lib\net45\Livet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroRadiance, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroRadiance.2.3.0\lib\net46\MetroRadiance.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MetroRadiance.Chrome, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroRadiance.Chrome.2.2.0\lib\net46\MetroRadiance.Chrome.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MetroRadiance.Core, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroRadiance.Core.2.2.0\lib\net46\MetroRadiance.Core.dll</HintPath>
+    <Reference Include="MetroRadiance.Core, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroRadiance.Core.2.2.1\lib\net46\MetroRadiance.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroTrilithon, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroTrilithon.0.2.0\lib\portable-net45+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10\MetroTrilithon.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\LivetCask.1.3.1.0\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Nekoxy, Version=1.5.2.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nekoxy.1.5.2.20\lib\net45\Nekoxy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="StatefulModel, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\StatefulModel.0.5.0\lib\portable-net45+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10\StatefulModel.dll</HintPath>
+      <HintPath>..\packages\StatefulModel.0.6.0\lib\portable-net45+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10\StatefulModel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\LivetCask.1.3.1.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -72,6 +121,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TrotiNet, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nekoxy.1.5.2.20\lib\net45\TrotiNet.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -86,6 +139,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Annotations\DarkAttribute.cs" />
+    <Compile Include="Annotations\ElementalAttribute.cs" />
+    <Compile Include="Annotations\LightAttribute.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -128,6 +184,10 @@
       <Project>{c449b2ed-3ff8-49d9-9dfc-b3cec0212f1e}</Project>
       <Name>ViewRepairList</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\KanColleViewer.PluginAnalyzer.1.1.1.0\analyzers\KanColleViewer.Composition.dll" />
+    <Analyzer Include="..\packages\KanColleViewer.PluginAnalyzer.1.1.1.0\analyzers\KanColleViewer.PluginAnalyzer.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

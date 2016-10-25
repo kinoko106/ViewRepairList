@@ -4,10 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomControlTest"
-        xmlns:ViewRepairList="clr-namespace:ViewRepairList;assembly=ViewRepairList" x:Class="CustomControlTest.MainWindow"
+        xmlns:ViewRepairList="clr-namespace:ViewRepairList;assembly=ViewRepairList" 
+        x:Class="CustomControlTest.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <ViewRepairList:RepairList HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+        Title="MainWindow" Height="350" Width="525"
+        Background="{DynamicResource ThemeBrushKey}"
+        Foreground="{DynamicResource ActiveForegroundBrushKey}">
+    <Grid >
+        <ViewRepairList:RepairList/>
+
     </Grid>
 </Window>
