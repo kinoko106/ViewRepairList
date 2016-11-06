@@ -19,6 +19,7 @@ namespace ViewRepairList
     /// </summary>
     public partial class repairListWindow : Window
     {
+
         public repairListWindow()
         {
             InitializeComponent();

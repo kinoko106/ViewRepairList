@@ -3,59 +3,126 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:controls="http://schemes.grabacr.net/winfx/2015/kancolleviewer/controls"
-        xmlns:contents="http://schemes.grabacr.net/winfx/2014/controls"
+        xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
+		xmlns:kcvc="http://schemes.grabacr.net/winfx/2015/kancolleviewer/controls"
+		xmlns:kcvi="http://schemes.grabacr.net/winfx/2015/kancolleviewer/interactivity"
+		xmlns:kcvv="http://schemes.grabacr.net/winfx/2015/kancolleviewer/converters"
         xmlns:local="clr-namespace:ViewRepairList"
         mc:Ignorable="d"
         Title="repairListWindow" Height="600" Width="800"
         Background="{DynamicResource ThemeBrushKey}"
         Foreground="{DynamicResource ActiveForegroundBrushKey}">
     <StackPanel Margin="10,10,10,10" Orientation="Vertical">
-        <!--#region フィルター-->
-        <StackPanel x:Name="title">
-            <Label x:Name="titleLabel" Content="改修リスト" Height="24" />
-        </StackPanel>
-        <WrapPanel Orientation="Horizontal">
+        <WrapPanel x:Name="title" >
+            <Label x:Name="titleLabel" Content="改修リスト" Height="24" Foreground="{DynamicResource ActiveForegroundBrushKey}" />
+        </WrapPanel>
+        <!--#region フィルター1 装備分類・曜日 -->
+        <WrapPanel Orientation="Horizontal" >
             <Border BorderBrush="{DynamicResource BorderBrushKey}"
 					BorderThickness=".99"
 					Margin="8">
-                <WrapPanel Orientation="Horizontal" Margin="5,5,5,5">
-                    <StackPanel>
-                        <Label x:Name="subtitle" Content="分類:" Foreground="{DynamicResource ActiveForegroundBrushKey}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <WrapPanel x:Name="Filter1">
-                            <CheckBox x:Name="small" Content="小口径" />
-                            <CheckBox x:Name="middle" Content="中口径" />
-                            <CheckBox x:Name="large" Content="大口径" />
-                            <CheckBox x:Name="sub" Content="副砲" />
-                            <CheckBox x:Name="torped" Content="魚雷" />
-                            <CheckBox x:Name="koukaku" Content="高角砲" />
-                            <CheckBox x:Name="kansen" Content="艦戦" />
-                            <CheckBox x:Name="kanbaku" Content="艦爆" />
-                            <CheckBox x:Name="kankou" Content="艦攻" />
-                            <CheckBox x:Name="teisatu" Content="偵察機" />
-                            <CheckBox x:Name="dentan" Content="電探" />
-                            <CheckBox x:Name="sonar" Content="ソナー" />
-                            <CheckBox x:Name="bakurai" Content="爆雷" />
-                            <CheckBox x:Name="tekkou" Content="徹甲弾" />
-                            <CheckBox x:Name="kiju" Content="機銃" />
-                            <CheckBox x:Name="kousya" Content="高射装置" />
-                            <CheckBox x:Name="sentei" Content="上陸用舟艇" />
-                            <CheckBox x:Name="tansyo" Content="探照灯" />
+                <WrapPanel Orientation="Horizontal" Margin="5,5,5,5" Width="750"><!--フィルタ全体を囲う大枠-->
+                    <!--#region 装備フィルタ-->
+                    <WrapPanel x:Name="bunrui"><!--分類全体を囲う大枠-->
+                        <WrapPanel Orientation="Vertical">
+                            <Label x:Name="subtitle" Content="分類:" Foreground="{DynamicResource ActiveForegroundBrushKey}"/>
                         </WrapPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="syuhouB" Content="主砲" />
-                            <Button x:Name="hukuhouB" Content="副砲" />
-                        </StackPanel>
-                    </StackPanel>
+                        <WrapPanel Orientation="Vertical"  Width="700">
+                            <WrapPanel Orientation="Vertical">
+                                <WrapPanel Orientation="Horizontal" x:Name="Filter1">
+                                    <WrapPanel.Resources>
+                                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                                            <Setter Property="Margin" Value="5,4" />
+                                        </Style>
+                                    </WrapPanel.Resources>
+                                    <StackPanel>
+                                        <CheckBox x:Name="allwepones" Content="すべて" />
+                                    </StackPanel>
+                                    <WrapPanel>
+                                        <CheckBox x:Name="small" Content="小口径" />
+                                        <CheckBox x:Name="middle" Content="中口径" />
+                                        <CheckBox x:Name="large" Content="大口径" />
+                                        <CheckBox x:Name="sub" Content="副砲" />
+                                        <CheckBox x:Name="kiju" Content="機銃" />
+                                        <CheckBox x:Name="koukaku" Content="高角砲" />
+                                        <CheckBox x:Name="torped" Content="魚雷" />
+                                        <CheckBox x:Name="kansen" Content="艦戦" />
+                                        <CheckBox x:Name="kanbaku" Content="艦爆" />
+                                        <CheckBox x:Name="kankou" Content="艦攻" />
+                                        <CheckBox x:Name="teisatu" Content="偵察機" />
+                                        <CheckBox x:Name="dentan" Content="電探" />
+                                        <CheckBox x:Name="sonar" Content="ソナー" />
+                                        <CheckBox x:Name="bakurai" Content="爆雷" />
+                                        <CheckBox x:Name="tekkou" Content="徹甲弾" />
+                                        <CheckBox x:Name="kousya" Content="高射装置" />
+                                        <CheckBox x:Name="sentei" Content="上陸用舟艇" />
+                                        <CheckBox x:Name="tansyo" Content="探照灯" />
+                                    </WrapPanel>
+                                </WrapPanel>
+                                <WrapPanel Orientation="Horizontal">
+                                    <WrapPanel.Resources>
+                                        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                            <Setter Property="Margin" Value="5,2,2,2"/>
+                                        </Style>
+                                    </WrapPanel.Resources>
+                                    <Button x:Name="syuhouB" Content="主砲" />
+                                    <Button x:Name="hukuhouB" Content="副砲" />
+                                    <Button x:Name="kijuB" Content="機銃 ・ 高角砲" />
+                                    <Button x:Name="torpedB" Content="魚雷" />
+                                    <Button x:Name="bakuSnarB" Content="爆雷 ・ ソナー" />
+                                    <Button x:Name="kansenB" Content="艦戦" />
+                                    <Button x:Name="bakukouB" Content="艦爆 ・ 艦攻" />
+                                    <Button x:Name="teisatuB" Content="偵察機" />
+                                    <Button x:Name="tekkouB" Content="その他" />
+                                </WrapPanel>
+                            </WrapPanel>
+                        </WrapPanel>
+                    </WrapPanel>
+                    <!--#endregion-->
+                    <!--#region 曜日フィルタ-->
+                    <WrapPanel x:Name="youbi"><!--曜日枠-->
+                        <WrapPanel Orientation="Vertical">
+                            <Label x:Name="subtitle2" Content="曜日:" Foreground="{DynamicResource ActiveForegroundBrushKey}"/>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <WrapPanel.Resources>
+                                <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                                    <Setter Property="Margin" Value="5,4" />
+                                </Style>
+                            </WrapPanel.Resources>
+                            <CheckBox x:Name="alldays" Content="すべて" />
+                            <CheckBox x:Name="Sunday" Content="日" />
+                            <CheckBox x:Name="Monday" Content="月" />
+                            <CheckBox x:Name="Tuesday" Content="火" />
+                            <CheckBox x:Name="Wednesday" Content="水" />
+                            <CheckBox x:Name="Thursday" Content="木" />
+                            <CheckBox x:Name="Friday" Content="金" />
+                            <CheckBox x:Name="Saturday" Content="土" />
+                        </WrapPanel>
+                    </WrapPanel>
+                    <!--#endregion-->
                 </WrapPanel>
             </Border>
         </WrapPanel>
         <!--#endregion-->
         
-        <!--#region フィルター2-->
-
+        <!--#region フィルター2 個数制限など-->
+        <WrapPanel Orientation="Horizontal" >
+            <Border BorderBrush="{DynamicResource BorderBrushKey}"
+					BorderThickness=".99"
+					Margin="8">
+                <WrapPanel Orientation="Horizontal" Margin="5,5,5,5" Width="750"><!--フィルタ全体を囲う大枠-->
+                    <WrapPanel.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="Foreground" Value="{DynamicResource ActiveForegroundBrushKey}"/>
+                        </Style>
+                    </WrapPanel.Resources>
+                    <StackPanel Orientation="Vertical">
+                        <Label x:Name="neji" Content="ネジ"/>
+                    </StackPanel>
+                </WrapPanel>
+            </Border>
+        </WrapPanel>
         <!--#endregion-->
 
         <!--#region 改修装備リスト-->

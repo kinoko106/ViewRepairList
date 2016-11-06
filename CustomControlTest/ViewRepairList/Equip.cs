@@ -16,15 +16,6 @@ namespace ViewRepairList
     //改修装備クラス
     class Equip
     {
-        //改修担当艦娘
-        internal class AssistShip
-        {
-            public int ShipId { get; set; }
-            public int ShipName { get; set; }
-            public string EquipId { get; set; } //改修対象装備ID
-            public int[] week;                  //改修可能曜日
-        }
-
         public Equip()
         {
             DevelopCost = new Dictionary<int, int>();
@@ -49,7 +40,6 @@ namespace ViewRepairList
         public Dictionary<int, int> DevelopCost { get; set; }
         public Dictionary<int, int> ScrewCost { get; set; }
         public Dictionary<int, int> EquipCost { get; set; }
-        private List<AssistShip> AssistShips { get; set; }
         public int[] week;//改修可能曜日リスト
 
     }

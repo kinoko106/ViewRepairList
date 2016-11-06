@@ -25,22 +25,16 @@ namespace ViewRepairList
     /// </summary>
     public partial class RepairList : UserControl
     {
-        repairListWindow win = new repairListWindow();
 
         public RepairList()
         {
             InitializeComponent();
 
             //アイコンを探しています・・・
-            //AppIcon icn = new AppIcon();
-            //SlotItemIcon icons = new SlotItemIcon();
-            //icons.BeginInit();
-            //icons.Visibility = Visibility.Visible;
-            //double d = icons.ActualHeight;
             //var master = KanColleClient.Current.Master.SlotItems;
             //var info = master[10];
-
             //DataContext = new { Icon1 = info.IconType };
+
             //Plugin p = new Plugin();
             //p.GetAppPath();
 
@@ -77,13 +71,8 @@ namespace ViewRepairList
 
         private void open_repairList(object sender, RoutedEventArgs e)
         {
-            if (win.IsLoaded == false)
-            {
-                win.Show();
-            }else
-            {
-                win.Activate();
-            }
+            repairListWindow win = new repairListWindow();
+            win.Show();
         }
     }
 }
