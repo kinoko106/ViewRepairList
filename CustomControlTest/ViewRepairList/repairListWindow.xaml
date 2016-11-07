@@ -118,7 +118,17 @@
                         </Style>
                     </WrapPanel.Resources>
                     <StackPanel Orientation="Vertical">
-                        <Label x:Name="neji" Content="ネジ"/>
+                        <!-- TODO:きれいにレイアウトしたい 要参考資料 -->
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="neji" Content="ネジ制限  :" Width="65"/>
+                            <RadioButton x:Name="nejiLimiAll" Content="すべて" GroupName="nejiLimit" VerticalAlignment="Stretch" Margin="5,0,0,0"/>
+                            <RadioButton x:Name="nejiLimi1" Content="1つのみ" GroupName="nejiLimit" VerticalAlignment="Stretch" Margin="5,0,0,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="eqpscs" Content="装備消費 :" Width="65"/>
+                            <RadioButton x:Name="EquipLimiAll" Content="あり" GroupName="EquipLimit" VerticalAlignment="Stretch" Margin="5,0,0,0"/>
+                            <RadioButton x:Name="EquipLimi1" Content="なし" GroupName="EquipLimit" VerticalAlignment="Stretch" Margin="5,0,0,0"/>
+                        </StackPanel>
                     </StackPanel>
                 </WrapPanel>
             </Border>

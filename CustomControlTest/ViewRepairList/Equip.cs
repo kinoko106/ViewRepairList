@@ -16,17 +16,22 @@ namespace ViewRepairList
     //改修装備クラス
     class Equip
     {
+        public class eqpcs
+        {
+            public int key { get; set; }     //改修段階
+            public string name { get; set; } //装備名
+            public int num { get; set; }     //消費数
+        }
+
         public Equip()
         {
             DevelopCost = new Dictionary<int, int>();
             ScrewCost = new Dictionary<int, int>();
-            EquipCost = new Dictionary<int, int>();
         }
         public Equip(Ship s)
         {
             DevelopCost = new Dictionary<int, int>();
             ScrewCost = new Dictionary<int, int>();
-            EquipCost = new Dictionary<int, int>();
 
             
         }
@@ -39,8 +44,6 @@ namespace ViewRepairList
 
         public Dictionary<int, int> DevelopCost { get; set; }
         public Dictionary<int, int> ScrewCost { get; set; }
-        public Dictionary<int, int> EquipCost { get; set; }
-        public int[] week;//改修可能曜日リスト
-
+        public eqpcs EquipCost { get; set; }
     }
 }
