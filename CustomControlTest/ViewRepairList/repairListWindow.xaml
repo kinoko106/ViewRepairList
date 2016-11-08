@@ -11,7 +11,8 @@
         mc:Ignorable="d"
         Title="repairListWindow" Height="600" Width="800"
         Background="{DynamicResource ThemeBrushKey}"
-        Foreground="{DynamicResource ActiveForegroundBrushKey}">
+        Foreground="{DynamicResource ActiveForegroundBrushKey}"
+        FontFamily="{DynamicResource DefaultFontFamilyKey}">
     <StackPanel Margin="10,10,10,10" Orientation="Vertical">
         <WrapPanel x:Name="title" >
             <Label x:Name="titleLabel" Content="改修リスト" Height="24" Foreground="{DynamicResource ActiveForegroundBrushKey}" />
@@ -32,7 +33,7 @@
                                 <WrapPanel Orientation="Horizontal" x:Name="Filter1">
                                     <WrapPanel.Resources>
                                         <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
-                                            <Setter Property="Margin" Value="5,4" />
+                                            <Setter Property="Margin" Value="5,1" />
                                         </Style>
                                     </WrapPanel.Resources>
                                     <StackPanel>
@@ -87,7 +88,7 @@
                         <WrapPanel>
                             <WrapPanel.Resources>
                                 <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
-                                    <Setter Property="Margin" Value="5,4" />
+                                    <Setter Property="Margin" Value="4,4" />
                                 </Style>
                             </WrapPanel.Resources>
                             <CheckBox x:Name="alldays" Content="すべて" />
@@ -115,19 +116,42 @@
                     <WrapPanel.Resources>
                         <Style TargetType="Label">
                             <Setter Property="Foreground" Value="{DynamicResource ActiveForegroundBrushKey}"/>
+                            <Setter Property="Width" Value="65"/>
+                            <Setter Property="Height" Value="23"/>
+                            <Setter Property="FontSize" Value="11"/>
+                        </Style>
+                        <Style TargetType="RadioButton" BasedOn="{StaticResource {x:Type RadioButton}}">
+                            <Setter Property="Width" Value="60"/>
+                            <Setter Property="Height" Value="23"/>
+                            <Setter Property="Margin" Value="5,0,0,0"/>
+                            <Setter Property="VerticalAlignment" Value="Stretch"/>
                         </Style>
                     </WrapPanel.Resources>
                     <StackPanel Orientation="Vertical">
                         <!-- TODO:きれいにレイアウトしたい 要参考資料 -->
                         <StackPanel Orientation="Horizontal">
-                            <Label x:Name="neji" Content="ネジ制限  :" Width="65"/>
-                            <RadioButton x:Name="nejiLimiAll" Content="すべて" GroupName="nejiLimit" VerticalAlignment="Stretch" Margin="5,0,0,0"/>
-                            <RadioButton x:Name="nejiLimi1" Content="1つのみ" GroupName="nejiLimit" VerticalAlignment="Stretch" Margin="5,0,0,0"/>
+                            <Label x:Name="neji" Content="ネジ制限  :" />
+                            <RadioButton x:Name="nejiLimiAll" Content="すべて" GroupName="nejiLimit"/>
+                            <RadioButton x:Name="nejiLimi1" Content="1つのみ" GroupName="nejiLimit"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Label x:Name="eqpscs" Content="装備消費 :" Width="65"/>
-                            <RadioButton x:Name="EquipLimiAll" Content="あり" GroupName="EquipLimit" VerticalAlignment="Stretch" Margin="5,0,0,0"/>
-                            <RadioButton x:Name="EquipLimi1" Content="なし" GroupName="EquipLimit" VerticalAlignment="Stretch" Margin="5,0,0,0"/>
+                            <Label x:Name="eqpscs" Content="装備消費 :" />
+                            <RadioButton x:Name="EquipLimiAll" Content="あり" GroupName="EquipLimit"/>
+                            <RadioButton x:Name="EquipLimi1" Content="なし" GroupName="EquipLimit"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="devcost" Content="開発資材 :" />
+                            <CheckBox x:Name="devcostcheck" Content="所持数以下のみ表示"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="2番艦制限 :" Width="70"/>
+                            <CheckBox x:Name="enseicheck" Content="遠征中の艦を除外する"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            
+                            <CheckBox x:Name="kanmusucheck" Content="遠征中の艦を除外する"/>
                         </StackPanel>
                     </StackPanel>
                 </WrapPanel>

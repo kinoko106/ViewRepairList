@@ -160,10 +160,6 @@
     <Analyzer Include="..\packages\KanColleViewer.PluginAnalyzer.1.1.1.0\analyzers\KanColleViewer.PluginAnalyzer.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="dictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="RepairList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
