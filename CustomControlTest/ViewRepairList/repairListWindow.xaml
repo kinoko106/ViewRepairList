@@ -14,9 +14,18 @@
         Foreground="{DynamicResource ActiveForegroundBrushKey}"
         FontFamily="{DynamicResource DefaultFontFamilyKey}">
     <StackPanel Margin="10,10,10,10" Orientation="Vertical">
-        <WrapPanel x:Name="title" >
-            <Label x:Name="titleLabel" Content="改修リスト" Height="24" Foreground="{DynamicResource ActiveForegroundBrushKey}" />
-        </WrapPanel>
+        <StackPanel x:Name="title" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Left">
+                <Label x:Name="titleLabel" Content="改修リスト" Height="24" Foreground="{DynamicResource ActiveForegroundBrushKey}" />
+            </StackPanel>
+            <!-- 左寄せしたい -->
+            <StackPanel Orientation="Horizontal">
+                <Label Content="開発資材:" Foreground="{DynamicResource ActiveForegroundBrushKey}"/>
+                <Label x:Name="screwNumLabel" Content="{Binding screwNum}" Foreground="{DynamicResource ActiveForegroundBrushKey}"/>
+                <Label Content="ネジ:" Foreground="{DynamicResource ActiveForegroundBrushKey}"/>
+                <Label x:Name="nejiwNumLabel" Content="{Binding nejiNum}" Foreground="{DynamicResource ActiveForegroundBrushKey}"/>
+            </StackPanel>
+        </StackPanel>
         <!--#region フィルター1 装備分類・曜日 -->
         <WrapPanel Orientation="Horizontal" >
             <Border BorderBrush="{DynamicResource BorderBrushKey}"
@@ -126,32 +135,81 @@
                             <Setter Property="Margin" Value="5,0,0,0"/>
                             <Setter Property="VerticalAlignment" Value="Stretch"/>
                         </Style>
+                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                            <Setter Property="Margin" Value="5,0,0,0"/>
+                        </Style>
                     </WrapPanel.Resources>
                     <StackPanel Orientation="Vertical">
                         <!-- TODO:きれいにレイアウトしたい 要参考資料 -->
                         <StackPanel Orientation="Horizontal">
-                            <Label x:Name="neji" Content="ネジ制限  :" />
-                            <RadioButton x:Name="nejiLimiAll" Content="すべて" GroupName="nejiLimit"/>
-                            <RadioButton x:Name="nejiLimi1" Content="1つのみ" GroupName="nejiLimit"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="70"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="24"/>
+                                </Grid.RowDefinitions>
+                                <Label x:Name="neji" Content="ネジ制限  :" Grid.Column="0" />
+                                <RadioButton x:Name="nejiLimiAll" Content="すべて" IsChecked="True" GroupName="nejiLimit" Grid.Column="1"/>
+                                <RadioButton x:Name="nejiLimi1" Content="1つのみ" GroupName="nejiLimit" Grid.Column="2"/>
+                            </Grid>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Label x:Name="eqpscs" Content="装備消費 :" />
-                            <RadioButton x:Name="EquipLimiAll" Content="あり" GroupName="EquipLimit"/>
-                            <RadioButton x:Name="EquipLimi1" Content="なし" GroupName="EquipLimit"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="70"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="24"/>
+                                </Grid.RowDefinitions>
+                                <Label x:Name="eqpscs" Content="装備消費 :" Grid.Column="0"/>
+                                <RadioButton x:Name="EquipLimiAll" Content="あり" IsChecked="True" GroupName="EquipLimit" Grid.Column="1"/>
+                                <RadioButton x:Name="EquipLimi1" Content="なし" GroupName="EquipLimit" Grid.Column="2"/>
+                            </Grid>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Label x:Name="devcost" Content="開発資材 :" />
-                            <CheckBox x:Name="devcostcheck" Content="所持数以下のみ表示"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="24"/>
+                                </Grid.RowDefinitions>
+                                <Label x:Name="devcost" Content="開発資材 :" Grid.Column="0"/>
+                                <CheckBox x:Name="devcostcheck" Content="所持数以下のみ表示" Grid.Column="1"/>
+                            </Grid>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="20,0,0,0">
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="2番艦制限 :" Width="70"/>
-                            <CheckBox x:Name="enseicheck" Content="遠征中の艦を除外する"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="24"/>
+                                </Grid.RowDefinitions>
+                                <Label Content="2番艦制限 :" Width="70" Grid.Column="0"/>
+                                <CheckBox x:Name="enseicheck" Content="遠征中の艦を除外する" Grid.Column="1"/>
+                            </Grid>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            
-                            <CheckBox x:Name="kanmusucheck" Content="遠征中の艦を除外する"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="24"/>
+                                </Grid.RowDefinitions>
+                                <CheckBox x:Name="kanmusucheck" Content="所持艦艦娘のみ" IsChecked="True" Grid.Column="1"/>
+                            </Grid>
                         </StackPanel>
                     </StackPanel>
                 </WrapPanel>
