@@ -46,27 +46,27 @@
                                         </Style>
                                     </WrapPanel.Resources>
                                     <StackPanel>
-                                        <CheckBox x:Name="allwepones" Content="すべて" />
+                                        <CheckBox x:Name="AllWepones" Content="すべて" />
                                     </StackPanel>
                                     <WrapPanel>
-                                        <CheckBox x:Name="small" Content="小口径" />
-                                        <CheckBox x:Name="middle" Content="中口径" />
-                                        <CheckBox x:Name="large" Content="大口径" />
-                                        <CheckBox x:Name="sub" Content="副砲" />
-                                        <CheckBox x:Name="kiju" Content="機銃" />
-                                        <CheckBox x:Name="koukaku" Content="高角砲" />
-                                        <CheckBox x:Name="torped" Content="魚雷" />
-                                        <CheckBox x:Name="kansen" Content="艦戦" />
-                                        <CheckBox x:Name="kanbaku" Content="艦爆" />
-                                        <CheckBox x:Name="kankou" Content="艦攻" />
-                                        <CheckBox x:Name="teisatu" Content="偵察機" />
-                                        <CheckBox x:Name="dentan" Content="電探" />
-                                        <CheckBox x:Name="sonar" Content="ソナー" />
-                                        <CheckBox x:Name="bakurai" Content="爆雷" />
-                                        <CheckBox x:Name="tekkou" Content="徹甲弾" />
-                                        <CheckBox x:Name="kousya" Content="高射装置" />
-                                        <CheckBox x:Name="sentei" Content="上陸用舟艇" />
-                                        <CheckBox x:Name="tansyo" Content="探照灯" />
+                                        <CheckBox x:Name="SmallPA" Content="小口径" />
+                                        <CheckBox x:Name="MiddlePA" Content="中口径" />
+                                        <CheckBox x:Name="LargePA" Content="大口径" />
+                                        <CheckBox x:Name="SecondPA" Content="副砲" />
+                                        <CheckBox x:Name="AAGun" Content="機銃" />
+                                        <CheckBox x:Name="FLAK" Content="高角砲" />
+                                        <CheckBox x:Name="Torped" Content="魚雷" />
+                                        <CheckBox x:Name="Fighter" Content="艦戦" />
+                                        <CheckBox x:Name="Bomber" Content="艦爆" />
+                                        <CheckBox x:Name="Atacker" Content="艦攻" />
+                                        <CheckBox x:Name="Surveillance" Content="偵察機" />
+                                        <CheckBox x:Name="Radar" Content="電探" />
+                                        <CheckBox x:Name="Sonar" Content="ソナー" />
+                                        <CheckBox x:Name="DP" Content="爆雷" />
+                                        <CheckBox x:Name="APShell" Content="徹甲弾" />
+                                        <CheckBox x:Name="AADirector" Content="高射装置" />
+                                        <CheckBox x:Name="LandingCraft" Content="上陸用舟艇" />
+                                        <CheckBox x:Name="SearchLight" Content="探照灯" />
                                     </WrapPanel>
                                 </WrapPanel>
                                 <WrapPanel Orientation="Horizontal">
