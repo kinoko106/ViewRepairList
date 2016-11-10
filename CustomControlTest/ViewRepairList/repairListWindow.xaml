@@ -41,7 +41,7 @@
                             <WrapPanel Orientation="Vertical">
                                 <WrapPanel Orientation="Horizontal" x:Name="Filter1">
                                     <WrapPanel.Resources>
-                                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                                        <Style x:Name="EquipTypeStyle" TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
                                             <Setter Property="Margin" Value="5,1" />
                                         </Style>
                                     </WrapPanel.Resources>
@@ -49,24 +49,24 @@
                                         <CheckBox x:Name="AllWepones" Content="すべて" />
                                     </StackPanel>
                                     <WrapPanel>
-                                        <CheckBox x:Name="SmallPA" Content="小口径" />
-                                        <CheckBox x:Name="MiddlePA" Content="中口径" />
-                                        <CheckBox x:Name="LargePA" Content="大口径" />
-                                        <CheckBox x:Name="SecondPA" Content="副砲" />
-                                        <CheckBox x:Name="AAGun" Content="機銃" />
-                                        <CheckBox x:Name="FLAK" Content="高角砲" />
-                                        <CheckBox x:Name="Torped" Content="魚雷" />
-                                        <CheckBox x:Name="Fighter" Content="艦戦" />
-                                        <CheckBox x:Name="Bomber" Content="艦爆" />
-                                        <CheckBox x:Name="Atacker" Content="艦攻" />
-                                        <CheckBox x:Name="Surveillance" Content="偵察機" />
-                                        <CheckBox x:Name="Radar" Content="電探" />
-                                        <CheckBox x:Name="Sonar" Content="ソナー" />
-                                        <CheckBox x:Name="DP" Content="爆雷" />
-                                        <CheckBox x:Name="APShell" Content="徹甲弾" />
-                                        <CheckBox x:Name="AADirector" Content="高射装置" />
-                                        <CheckBox x:Name="LandingCraft" Content="上陸用舟艇" />
-                                        <CheckBox x:Name="SearchLight" Content="探照灯" />
+                                        <CheckBox x:Name="SmallPA" Content="小口径" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="MiddlePA" Content="中口径" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" />
+                                        <CheckBox x:Name="LargePA" Content="大口径" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="SecondPA" Content="副砲" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="AAGun" Content="機銃" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="FLAK" Content="高角砲" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="Torped" Content="魚雷" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="Fighter" Content="艦戦" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="Bomber" Content="艦爆" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" />
+                                        <CheckBox x:Name="Atacker" Content="艦攻" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="Surveillance" Content="偵察機" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="Radar" Content="電探" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="Sonar" Content="ソナー" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="DP" Content="爆雷" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="APShell" Content="徹甲弾" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="AADirector" Content="高射装置" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="LandingCraft" Content="上陸用舟艇" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
+                                        <CheckBox x:Name="SearchLight" Content="探照灯" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked"/>
                                     </WrapPanel>
                                 </WrapPanel>
                                 <WrapPanel Orientation="Horizontal">
@@ -75,15 +75,15 @@
                                             <Setter Property="Margin" Value="5,2,2,2"/>
                                         </Style>
                                     </WrapPanel.Resources>
-                                    <Button x:Name="syuhouB" Content="主砲" />
-                                    <Button x:Name="hukuhouB" Content="副砲" />
-                                    <Button x:Name="kijuB" Content="機銃 ・ 高角砲" />
-                                    <Button x:Name="torpedB" Content="魚雷" />
-                                    <Button x:Name="bakuSnarB" Content="爆雷 ・ ソナー" />
-                                    <Button x:Name="kansenB" Content="艦戦" />
-                                    <Button x:Name="bakukouB" Content="艦爆 ・ 艦攻" />
-                                    <Button x:Name="teisatuB" Content="偵察機" />
-                                    <Button x:Name="tekkouB" Content="その他" />
+                                    <Button x:Name="PrimaryArmamentB" Content="主砲" Click="EquipTypeButton_Clicked" />
+                                    <Button x:Name="SecondaryB" Content="副砲" />
+                                    <Button x:Name="AAFLAK" Content="機銃 ・ 高角砲" />
+                                    <Button x:Name="TorpedB" Content="魚雷" />
+                                    <Button x:Name="DPSonarB" Content="爆雷 ・ ソナー" />
+                                    <Button x:Name="FighterB" Content="艦戦" />
+                                    <Button x:Name="AtackerB" Content="艦爆 ・ 艦攻" />
+                                    <Button x:Name="SurveillanceB" Content="偵察機" />
+                                    <Button x:Name="OtherB" Content="その他" />
                                 </WrapPanel>
                             </WrapPanel>
                         </WrapPanel>
@@ -152,8 +152,8 @@
                                     <RowDefinition Height="24"/>
                                 </Grid.RowDefinitions>
                                 <Label x:Name="neji" Content="ネジ制限  :" Grid.Column="0" />
-                                <RadioButton x:Name="nejiLimiAll" Content="すべて" IsChecked="True" GroupName="nejiLimit" Grid.Column="1"/>
-                                <RadioButton x:Name="nejiLimi1" Content="1つのみ" GroupName="nejiLimit" Grid.Column="2"/>
+                                <RadioButton x:Name="ScrewAll" Content="すべて" IsChecked="True" GroupName="ScrewLimit" Grid.Column="1"/>
+                                <RadioButton x:Name="ScrewOne" Content="1つのみ" GroupName="ScrewLimit" Grid.Column="2"/>
                             </Grid>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
@@ -167,8 +167,8 @@
                                     <RowDefinition Height="24"/>
                                 </Grid.RowDefinitions>
                                 <Label x:Name="eqpscs" Content="装備消費 :" Grid.Column="0"/>
-                                <RadioButton x:Name="EquipLimiAll" Content="あり" IsChecked="True" GroupName="EquipLimit" Grid.Column="1"/>
-                                <RadioButton x:Name="EquipLimi1" Content="なし" GroupName="EquipLimit" Grid.Column="2"/>
+                                <RadioButton x:Name="EquipAll" Content="あり" IsChecked="True" GroupName="EquipLimit" Grid.Column="1"/>
+                                <RadioButton x:Name="Equip1" Content="なし" GroupName="EquipLimit" Grid.Column="2"/>
                             </Grid>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
@@ -181,7 +181,7 @@
                                     <RowDefinition Height="24"/>
                                 </Grid.RowDefinitions>
                                 <Label x:Name="devcost" Content="開発資材 :" Grid.Column="0"/>
-                                <CheckBox x:Name="devcostcheck" Content="所持数以下のみ表示" Grid.Column="1"/>
+                                <CheckBox x:Name="DevCostLimit" Content="所持数以下のみ表示" Grid.Column="1"/>
                             </Grid>
                         </StackPanel>
                     </StackPanel>
@@ -196,7 +196,7 @@
                                     <RowDefinition Height="24"/>
                                 </Grid.RowDefinitions>
                                 <Label Content="2番艦制限 :" Width="70" Grid.Column="0"/>
-                                <CheckBox x:Name="enseicheck" Content="遠征中の艦を除外する" Grid.Column="1"/>
+                                <CheckBox x:Name="ExpeditionCheck" Content="遠征中の艦を除外する" Grid.Column="1"/>
                             </Grid>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
@@ -208,7 +208,7 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="24"/>
                                 </Grid.RowDefinitions>
-                                <CheckBox x:Name="kanmusucheck" Content="所持艦艦娘のみ" IsChecked="True" Grid.Column="1"/>
+                                <CheckBox x:Name="KanmusuCheck" Content="所持艦艦娘のみ" IsChecked="True" Grid.Column="1"/>
                             </Grid>
                         </StackPanel>
                     </StackPanel>
