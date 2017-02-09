@@ -12,6 +12,6 @@
         Foreground="{DynamicResource ActiveForegroundBrushKey}">
     <Grid >
         <ViewRepairList:RepairList/>
-
+        <TextBlock x:Name="textblock1" Text="{Binding text1}" Width="200" Height="100" />
     </Grid>
 </Window>

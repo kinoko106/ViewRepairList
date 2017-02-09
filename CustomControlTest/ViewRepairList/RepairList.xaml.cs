@@ -30,9 +30,26 @@ namespace ViewRepairList
         {
             InitializeComponent();
 
-            //アイコンを探しています・・・
-            //var master = KanColleClient.Current.Master.SlotItems;
-            //var info = master[10];
+            //var slotItemMaster = KanColleClient.Current.Master.SlotItems;
+            //var info = slotItemMaster[0];
+
+            //var useItemMaster = KanColleClient.Current.Master.UseItems;
+            //var use = useItemMaster[0];
+
+            //var shipMaster = KanColleClient.Current.Master.Ships;
+            //var ship = shipMaster[0];
+
+            //var eqType = KanColleClient.Current.Master.SlotItemEquipTypes;
+            //var eq = eqType[0];
+
+            //var itemYard = KanColleClient.Current.Homeport.Itemyard;
+            //var useitem = itemYard.UseItems;
+            //var uitem = useitem[0];
+
+            //var slotItems = itemYard.SlotItems.ToList();
+            //var sitem = slotItems[0];
+
+            //DataContext = new { text1 = sitem.Value.Info.Name };
             //DataContext = new { Icon1 = info.IconType };
 
             //Plugin p = new Plugin();

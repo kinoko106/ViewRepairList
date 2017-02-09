@@ -1,19 +1,11 @@
-﻿using Grabacr07.KanColleViewer.Composition;
-using Grabacr07.KanColleWrapper;
-using Grabacr07.KanColleWrapper.Models.Raw;
-using Grabacr07.KanColleWrapper.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel.Composition;
 using System.Linq;
-using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ViewRepairList
+namespace EquipJsonMaker
 {
-    //消費装備クラス
     public class eqpcs
     {
         public int key { get; set; }
@@ -27,8 +19,7 @@ namespace ViewRepairList
         }
     }
 
-    //改修装備クラス
-    public class Equip
+    public class EquipJson
     {
         public int groupId { get; set; }
         public string Name { get; set; }
@@ -41,7 +32,7 @@ namespace ViewRepairList
         public eqpcs[] EquipCost { get; set; }
         public Dictionary<string, int> Assist { get; set; }
 
-        public Equip()
+        public EquipJson()
         {
             DevelopCost = new int[3, 2];
             ScrewCost = new int[3, 2];
