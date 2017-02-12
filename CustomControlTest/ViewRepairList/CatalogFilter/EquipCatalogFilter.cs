@@ -30,7 +30,7 @@ namespace ViewRepairList.CatalogFilter
     //KanColleClient.Current.Homeport.Itemyard.UserItems
     class EquipScrewFilter : EquipCatalogFilter
     {
-        private List<UseItem> _UserItem;
+        private List<SlotItem> _SlotItem;
 
         #region All 変更通知
         bool _All;
@@ -68,9 +68,9 @@ namespace ViewRepairList.CatalogFilter
 
         #endregion
 
-        public EquipScrewFilter(Action updateAction,List<UseItem> uitem) : base(updateAction)
+        public EquipScrewFilter(Action updateAction,List<SlotItem> sitem) : base(updateAction)
         {
-            _UserItem = uitem;
+            _SlotItem = sitem;
             _All = true;
         }
 
@@ -79,7 +79,7 @@ namespace ViewRepairList.CatalogFilter
         {
             //引数のslotitem からIDを取得
             //uitemからIDの一致する装備を取得して、個数を受け取る
-            var num = _UserItem.Where(x => x.Id == item.Id).Select(x => x.Count).ToList();
+            var num = _SlotItem.Where(x => x.Id == item.Id).Select(x => x.Count).ToList();
 
             if (_All) return true;
             if (_One && num[0] == 1) return true;
@@ -91,6 +91,7 @@ namespace ViewRepairList.CatalogFilter
     #region 消費装備のフィルタ 消費装備の有無
     class EquipUsedNumFilter : EquipCatalogFilter
     {
+        //消費アイテム情報
         private UseItem _UserItem;
 
         #region Used 変更通知
