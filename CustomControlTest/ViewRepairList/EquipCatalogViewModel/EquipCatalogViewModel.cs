@@ -27,8 +27,7 @@ namespace ViewRepairList.EquipCatalogViewModel
 
         public EquipCatalogViewModel()
         {
-            var uitems = KanColleClient.Current.Homeport.Itemyard.UseItems.ToList();
-            var slotitems = KanColleClient.Current.Master.Itemyard.UseItems.ToList();
+            var uitems = KanColleClient.Current.Master.UseItems.ToList();
             this.EquipScrewFilter = new EquipScrewFilter(this.Update);
         }
 
