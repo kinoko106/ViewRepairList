@@ -26,11 +26,11 @@ namespace ViewRepairList.CatalogFilter
     }
 
     #region ネジのフィルタ 消費が1つのみor全部
-    //要:消費アイテム情報
     //KanColleClient.Current.Homeport.Itemyard.UserItems
     class EquipScrewFilter : EquipCatalogFilter
     {
-        private List<SlotItem> _SlotItem;
+        //いらなくね？
+        //private List<SlotItem> _SlotItem;
 
         #region All 変更通知
         bool _All;
@@ -68,9 +68,9 @@ namespace ViewRepairList.CatalogFilter
 
         #endregion
 
-        public EquipScrewFilter(Action updateAction,List<SlotItem> sitem) : base(updateAction)
+        public EquipScrewFilter(Action updateAction/*,List<SlotItem> sitem*/) : base(updateAction)
         {
-            _SlotItem = sitem;
+            //_SlotItem = sitem;
             _All = true;
         }
 
@@ -78,11 +78,15 @@ namespace ViewRepairList.CatalogFilter
         public override bool Predicate(SlotItem item)
         {
             //引数のslotitem からIDを取得
-            //uitemからIDの一致する装備を取得して、個数を受け取る
-            var num = _SlotItem.Where(x => x.Id == item.Id).Select(x => x.Count).ToList();
+            //sitemからIDの一致する装備を取得して、さらにJsonファイル記載の消費個数を受け取り判定
+            //var id = _SlotItem.Where(x => x.Id == item.Id).Select(x => x.Id).ToList();
+
+            /* Jsonファイルを捜査? */
+            //たぶん先にJoson読み込みからのリスト化を行っているので、Id又は装備名で検索をかけることになる
+            int num = 0;//ネジの消費数(予定)
 
             if (_All) return true;
-            if (_One && num[0] == 1) return true;
+            if (_One && num == 1) return true;
             return false;
         }
     }
@@ -91,8 +95,8 @@ namespace ViewRepairList.CatalogFilter
     #region 消費装備のフィルタ 消費装備の有無
     class EquipUsedNumFilter : EquipCatalogFilter
     {
-        //消費アイテム情報
-        private UseItem _UserItem;
+        //消費アイテム情報 やっぱいらなくね？
+        //private UseItem _UserItem;
 
         #region Used 変更通知
         bool _Used;
@@ -130,15 +134,17 @@ namespace ViewRepairList.CatalogFilter
 
         #endregion
 
-        public EquipUsedNumFilter(Action updateAction, UseItem uitem) : base(updateAction)
+        public EquipUsedNumFilter(Action updateAction/*, UseItem uitem*/) : base(updateAction)
         {
-            _UserItem = uitem;
+            //_UserItem = uitem;
             _Used = true;
         }
 
         //
         public override bool Predicate(SlotItem item)
         {
+            //Jsonの中身捜査、itemのIDから消費装備の有無を調べる
+
             if (_Used) return true;
             if (_WithOut) return true;
             return false;
