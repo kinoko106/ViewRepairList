@@ -78,7 +78,7 @@ namespace ViewRepairList.CatalogFilter
         public override bool Predicate(SlotItem item)
         {
             //引数のslotitem からIDを取得
-            //sitemからIDの一致する装備を取得して、さらにJsonファイル記載の消費個数を受け取り判定
+            //itemからIDの一致する装備を取得して、さらにJsonファイル記載の消費個数を受け取り判定
             //var id = _SlotItem.Where(x => x.Id == item.Id).Select(x => x.Id).ToList();
 
             /* Jsonファイルを捜査? */
@@ -155,7 +155,8 @@ namespace ViewRepairList.CatalogFilter
     #region 開発資材のフィルタ 所有数以下のみかどうか
     class DevelopCostFilter : EquipCatalogFilter
     {
-        private UseItem _UserItem;
+        //いらない
+        //private UseItem _UserItem;
 
         #region Less変更通知
         bool _Less;
@@ -177,7 +178,7 @@ namespace ViewRepairList.CatalogFilter
 
         public DevelopCostFilter(Action updateAction, UseItem uitem) : base(updateAction)
         {
-            _UserItem = uitem;
+            //_UserItem = uitem;
             _Less = true;
         }
 
@@ -193,10 +194,11 @@ namespace ViewRepairList.CatalogFilter
     #region 2番艦の制限 遠征中は除外 持ってない艦娘も除外
     class SecondShipFilter : EquipCatalogFilter
     {
-        private UseItem _UserItem;
+		private List<KeyValuePair<int, Fleet>> _fleets;
+		private List<Ship> ships;
 
-        #region Expedition変更通知
-        bool _Expedition;
+		#region Expedition変更通知
+		bool _Expedition;
 
         public bool Expedition
         {
@@ -212,7 +214,7 @@ namespace ViewRepairList.CatalogFilter
             }
         }
         #endregion
-
+		
         #region Belong変更通知
         bool _Belong;
 
@@ -231,17 +233,27 @@ namespace ViewRepairList.CatalogFilter
         }
         #endregion
 
-
-        public SecondShipFilter(Action updateAction, UseItem uitem) : base(updateAction)
+        public SecondShipFilter(Action updateAction,List<KeyValuePair<int,Fleet>> fleets) : base(updateAction)
         {
-            _UserItem = uitem;
             _Expedition = true;
             _Belong = true;
-        }
+			_fleets = fleets;
+		}
 
         public override bool Predicate(SlotItem item)
         {
-            if (_Expedition /*&& 遠征中であるか */) return true;
+			//艦隊の編成状況と状態を取得
+			if(_fleets[1].Value.State.Situation == FleetSituation.Combined || //連合艦隊を編成中
+				)
+			ships.AddRange(_fleets[0].Value.Ships.ToList());
+			ships.AddRange(_fleets[1].Value.Ships.ToList());
+			ships.AddRange(_fleets[2].Value.Ships.ToList());
+
+			//引数のslotitem からIDを取得
+			//sitemからIDの一致する装備を取得して、さらにJsonファイル記載の消費個数を受け取り判定
+			//var id = _SlotItem.Where(x => x.Id == item.Id).Select(x => x.Id).ToList()
+
+			if (_Expedition /*&& 遠征中であるか */) return true;
             if (_Belong /* && 艦隊にいるかいないか */) return true;
             return false;
         }

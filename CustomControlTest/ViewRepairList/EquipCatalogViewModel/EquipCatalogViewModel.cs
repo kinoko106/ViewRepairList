@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ViewRepairList.CatalogFilter;
 using Grabacr07.KanColleWrapper.Models;
-using Grabacr07.KanColleViewer.Models;
-using Grabacr07.KanColleViewer.Models.Settings;
+//using Grabacr07.KanColleViewer.Models;
+//using Grabacr07.KanColleViewer.Models.Settings;
 using Grabacr07.KanColleWrapper;
 
 namespace ViewRepairList.EquipCatalogViewModel
@@ -28,9 +28,12 @@ namespace ViewRepairList.EquipCatalogViewModel
         public EquipCatalogViewModel()
         {
             var uitems = KanColleClient.Current.Homeport.Itemyard.UseItems.ToList();
-            var slotitems = KanColleClient.Current.Master.Itemyard.UseItems.ToList();
-            this.EquipScrewFilter = new EquipScrewFilter(this.Update);
-        }
+			var fleets = KanColleClient.Current.Homeport.Organization.Fleets.ToList();
+			//var slotitems = KanColleClient.Current.Master.Itemyard.UseItems.ToList();
+			this.EquipScrewFilter = new EquipScrewFilter(this.Update);
+			this.SecondShipFilter = new SecondShipFilter(this.Update,fleets);
+
+		}
 
         public void Update()
         {

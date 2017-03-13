@@ -47,27 +47,27 @@
                                         </Style>
                                     </WrapPanel.Resources>
                                     <StackPanel>
-                                        <CheckBox x:Name="AllWepones" Content="すべて" Checked="EquipType_CheckedAll" Unchecked="EquipType_UnCheckedAll"  />
+                                        <CheckBox x:Name="AllWepones" Content="すべて" />
                                     </StackPanel>
                                     <WrapPanel x:Name="EquipCheckBox">
-                                        <CheckBox x:Name="SmallPA" Content="小口径" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="PA" />
-                                        <CheckBox x:Name="MiddlePA" Content="中口径" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="PA"/>
-                                        <CheckBox x:Name="LargePA" Content="大口径" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="PA"/>
-                                        <CheckBox x:Name="Secondary" Content="副砲" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="Secondary"/>
-                                        <CheckBox x:Name="AAGun" Content="機銃" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="AAFLAK"/>
-                                        <CheckBox x:Name="FLAK" Content="高角砲" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="AAFLAK"/>
-                                        <CheckBox x:Name="Torped" Content="魚雷" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="Torped"/>
-                                        <CheckBox x:Name="Sonar" Content="ソナー" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="DPSonar" />
-                                        <CheckBox x:Name="DP" Content="爆雷" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="DPSonar"/>
-                                        <CheckBox x:Name="Fighter" Content="艦戦" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="Fighter"/>
-                                        <CheckBox x:Name="Bomber" Content="艦爆" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="Atacker"/>
-                                        <CheckBox x:Name="Atacker" Content="艦攻" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="Atacker"/>
-                                        <CheckBox x:Name="Surveillance" Content="偵察機" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="Surveillance"/>
-                                        <CheckBox x:Name="Radar" Content="電探" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="Other"/>
-                                        <CheckBox x:Name="APShell" Content="徹甲弾" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="Other"/>
-                                        <CheckBox x:Name="AADirector" Content="高射装置" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="Other"/>
-                                        <CheckBox x:Name="LandingCraft" Content="上陸用舟艇" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="Other"/>
-                                        <CheckBox x:Name="SearchLight" Content="探照灯" Checked="EquipType_Checked" Unchecked="EquipType_UnChecked" Uid="Other"/>
+                                        <CheckBox x:Name="SmallPA" Content="小口径" Uid="PA" />
+                                        <CheckBox x:Name="MiddlePA" Content="中口径"   Uid="PA"/>
+                                        <CheckBox x:Name="LargePA" Content="大口径"   Uid="PA"/>
+                                        <CheckBox x:Name="Secondary" Content="副砲"   Uid="Secondary"/>
+                                        <CheckBox x:Name="AAGun" Content="機銃"   Uid="AAFLAK"/>
+                                        <CheckBox x:Name="FLAK" Content="高角砲"   Uid="AAFLAK"/>
+                                        <CheckBox x:Name="Torped" Content="魚雷"   Uid="Torped"/>
+                                        <CheckBox x:Name="Sonar" Content="ソナー"   Uid="DPSonar" />
+                                        <CheckBox x:Name="DP" Content="爆雷"   Uid="DPSonar"/>
+                                        <CheckBox x:Name="Fighter" Content="艦戦"   Uid="Fighter"/>
+                                        <CheckBox x:Name="Bomber" Content="艦爆"   Uid="Atacker"/>
+                                        <CheckBox x:Name="Atacker" Content="艦攻"   Uid="Atacker"/>
+                                        <CheckBox x:Name="Surveillance" Content="偵察機"   Uid="Surveillance"/>
+                                        <CheckBox x:Name="Radar" Content="電探"   Uid="Other"/>
+                                        <CheckBox x:Name="APShell" Content="徹甲弾"   Uid="Other"/>
+                                        <CheckBox x:Name="AADirector" Content="高射装置"   Uid="Other"/>
+                                        <CheckBox x:Name="LandingCraft" Content="上陸用舟艇"   Uid="Other"/>
+                                        <CheckBox x:Name="SearchLight" Content="探照灯"   Uid="Other"/>
                                     </WrapPanel>
                                 </WrapPanel>
                                 <WrapPanel Orientation="Horizontal">
@@ -76,15 +76,15 @@
                                             <Setter Property="Margin" Value="5,2,2,2"/>
                                         </Style>
                                     </WrapPanel.Resources>
-                                    <Button x:Name="PrimaryArmamentB" Content="主砲" Click="EquipTypeButton_Clicked" Uid="PA"/>
-                                    <Button x:Name="SecondaryB" Content="副砲" Click="EquipTypeButton_Clicked" Uid="Secondary"/>
-                                    <Button x:Name="AAFLAKB" Content="機銃 ・ 高角砲" Click="EquipTypeButton_Clicked" Uid="AAFLAK"/>
-                                    <Button x:Name="TorpedB" Content="魚雷" Click="EquipTypeButton_Clicked" Uid="Torped" />
-                                    <Button x:Name="DPSonar" Content="爆雷 ・ ソナー" Click="EquipTypeButton_Clicked" Uid="DPSonar"/>
-                                    <Button x:Name="FighterB" Content="艦戦" Click="EquipTypeButton_Clicked" Uid="Fighter"/>
-                                    <Button x:Name="AtackerB" Content="艦爆 ・ 艦攻" Click="EquipTypeButton_Clicked" Uid="Atacker"/>
-                                    <Button x:Name="SurveillanceB" Content="偵察機" Click="EquipTypeButton_Clicked" Uid="Surveillance"/>
-                                    <Button x:Name="OtherB" Content="その他" Click="EquipTypeButton_Clicked" Uid="Other"/>
+                                    <Button x:Name="PrimaryArmamentB" Content="主砲" Uid="PA"/>
+                                    <Button x:Name="SecondaryB" Content="副砲" Uid="Secondary"/>
+                                    <Button x:Name="AAFLAKB" Content="機銃 ・ 高角砲" Uid="AAFLAK"/>
+                                    <Button x:Name="TorpedB" Content="魚雷" Uid="Torped" />
+                                    <Button x:Name="DPSonar" Content="爆雷 ・ ソナー" Uid="DPSonar"/>
+                                    <Button x:Name="FighterB" Content="艦戦" Uid="Fighter"/>
+                                    <Button x:Name="AtackerB" Content="艦爆 ・ 艦攻" Uid="Atacker"/>
+                                    <Button x:Name="SurveillanceB" Content="偵察機" Uid="Surveillance"/>
+                                    <Button x:Name="OtherB" Content="その他" Uid="Other"/>
                                 </WrapPanel>
                             </WrapPanel>
                         </WrapPanel>
@@ -101,14 +101,14 @@
                                     <Setter Property="Margin" Value="4,4" />
                                 </Style>
                             </WrapPanel.Resources>
-                            <CheckBox x:Name="Alldays" Content="すべて" Checked="WeekOfDay_CheckedAll" Unchecked="WeekOfDay_UnCheckedAll" />
-                            <CheckBox x:Name="Sunday" Content="日" Checked="WeekOfDay_Checked" Unchecked="WeekOfDay_UnChecked" />
-                            <CheckBox x:Name="Monday" Content="月" Checked="WeekOfDay_Checked" Unchecked="WeekOfDay_UnChecked"/>
-                            <CheckBox x:Name="Tuesday" Content="火" Checked="WeekOfDay_Checked" Unchecked="WeekOfDay_UnChecked"/>
-                            <CheckBox x:Name="Wednesday" Content="水" Checked="WeekOfDay_Checked" Unchecked="WeekOfDay_UnChecked"/>
-                            <CheckBox x:Name="Thursday" Content="木" Checked="WeekOfDay_Checked" Unchecked="WeekOfDay_UnChecked"/>
-                            <CheckBox x:Name="Friday" Content="金" Checked="WeekOfDay_Checked" Unchecked="WeekOfDay_UnChecked"/>
-                            <CheckBox x:Name="Saturday" Content="土" Checked="WeekOfDay_Checked" Unchecked="WeekOfDay_UnChecked"/>
+                            <CheckBox x:Name="Alldays" Content="すべて" />
+                            <CheckBox x:Name="Sunday" Content="日" />
+                            <CheckBox x:Name="Monday" Content="月"/>
+                            <CheckBox x:Name="Tuesday" Content="火"/>
+                            <CheckBox x:Name="Wednesday" Content="水"/>
+                            <CheckBox x:Name="Thursday" Content="木"/>
+                            <CheckBox x:Name="Friday" Content="金"/>
+                            <CheckBox x:Name="Saturday" Content="土"/>
                         </WrapPanel>
                     </WrapPanel>
                     <!--#endregion-->
