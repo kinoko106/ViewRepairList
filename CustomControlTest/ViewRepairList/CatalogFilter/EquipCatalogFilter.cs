@@ -29,8 +29,6 @@ namespace ViewRepairList.CatalogFilter
     //KanColleClient.Current.Homeport.Itemyard.UserItems
     class EquipScrewFilter : EquipCatalogFilter
     {
-        //いらなくね？
-        //private List<SlotItem> _SlotItem;
 
         #region All 変更通知
         bool _All;
@@ -70,7 +68,6 @@ namespace ViewRepairList.CatalogFilter
 
         public EquipScrewFilter(Action updateAction/*,List<SlotItem> sitem*/) : base(updateAction)
         {
-            //_SlotItem = sitem;
             _All = true;
         }
 
@@ -79,10 +76,8 @@ namespace ViewRepairList.CatalogFilter
         {
             //引数のslotitem からIDを取得
             //itemからIDの一致する装備を取得して、さらにJsonファイル記載の消費個数を受け取り判定
-            //var id = _SlotItem.Where(x => x.Id == item.Id).Select(x => x.Id).ToList();
+            //var id = _SlotItem.FirstOrDefault(x => x.Name == item.Name);
 
-            /* Jsonファイルを捜査? */
-            //たぶん先にJoson読み込みからのリスト化を行っているので、Id又は装備名で検索をかけることになる
             int num = 0;//ネジの消費数(予定)
 
             if (_All) return true;
@@ -155,9 +150,7 @@ namespace ViewRepairList.CatalogFilter
     #region 開発資材のフィルタ 所有数以下のみかどうか
     class DevelopCostFilter : EquipCatalogFilter
     {
-        //いらない
-        //private UseItem _UserItem;
-
+		private int _devMaterials;
         #region Less変更通知
         bool _Less;
         public bool Less
@@ -176,16 +169,21 @@ namespace ViewRepairList.CatalogFilter
 
         #endregion
 
-        public DevelopCostFilter(Action updateAction, UseItem uitem) : base(updateAction)
+        public DevelopCostFilter(Action updateAction, int devMaterials) : base(updateAction)
         {
-            //_UserItem = uitem;
             _Less = true;
-        }
+			_devMaterials = devMaterials;
+		}
 
         //
         public override bool Predicate(SlotItem item)
         {
-            if (_Less) return true;
+			//Jsonからitemの消費資材数を取得
+
+			int devCost = 1;
+
+			//消費資材数が現在所持数より多い装備は排除
+            if (_Less && devCost >= _devMaterials) return false;
             return false;
         }
     }
@@ -195,7 +193,8 @@ namespace ViewRepairList.CatalogFilter
     class SecondShipFilter : EquipCatalogFilter
     {
 		private List<KeyValuePair<int, Fleet>> _fleets;
-		private List<Ship> ships;
+		private List<Ship> _ships;
+		private List<Ship> lostShips;//持ってるけどいない艦娘
 
 		#region Expedition変更通知
 		bool _Expedition;
@@ -233,29 +232,61 @@ namespace ViewRepairList.CatalogFilter
         }
         #endregion
 
-        public SecondShipFilter(Action updateAction,List<KeyValuePair<int,Fleet>> fleets) : base(updateAction)
+        public SecondShipFilter(Action updateAction,
+			List<KeyValuePair<int,Fleet>> fleets, 
+			List<Ship> ships) : base(updateAction)
         {
             _Expedition = true;
             _Belong = true;
 			_fleets = fleets;
+			_ships = ships;
 		}
 
         public override bool Predicate(SlotItem item)
         {
+			//Jsonから持ってきたEquipリストと照らし合わせて、itemを回収可能な艦娘を取得する(1～複数)
+			//ShipInfo.Id なら艦娘を一意に特定可能
+			var AssistShips = new List<string> { "翔鶴改二甲", "瑞鶴改二甲", "Warspite改", "山風", "鬼怒改二" };//改修可能な艦娘たち(名前) Jsonから得られたやつ
+
+			List<Ship> doAssistShip = new List<Ship>();
 			//艦隊の編成状況と状態を取得
-			if(_fleets[1].Value.State.Situation == FleetSituation.Combined || //連合艦隊を編成中
-				)
-			ships.AddRange(_fleets[0].Value.Ships.ToList());
-			ships.AddRange(_fleets[1].Value.Ships.ToList());
-			ships.AddRange(_fleets[2].Value.Ships.ToList());
+			//今すぐ編成できない人たち
+
+			//所属艦に限定しないとき
+			if (_Belong)
+			{
+				//遠征中の艦娘除外チェックがtrueなら
+				if (_Expedition)
+				{
+					foreach (var f in _fleets)
+					{
+						if (f.Value.State.Situation == FleetSituation.Expedition) //遠征中
+						{
+							lostShips.AddRange(f.Value.Ships.ToList());
+						}
+					}
+				}
+
+				foreach (var s in AssistShips)
+				{
+					//もってるor遠征中でない艦娘たち
+					var ship = _ships?.FirstOrDefault(x => x.Info.Name == s);
+					var lship = lostShips?.FirstOrDefault(x => x.Info.Name == s);
+					//今すぐ来れる艦娘だけ抽出
+					if (ship != null && lship == null) doAssistShip.Add(ship);
+				}
+			}else
+			{
+				doAssistShip = _ships;
+			}
 
 			//引数のslotitem からIDを取得
 			//sitemからIDの一致する装備を取得して、さらにJsonファイル記載の消費個数を受け取り判定
 			//var id = _SlotItem.Where(x => x.Id == item.Id).Select(x => x.Id).ToList()
+			//var s = _ships.FirstOrDefault(x => x.Info.Name == )
 
-			if (_Expedition /*&& 遠征中であるか */) return true;
-            if (_Belong /* && 艦隊にいるかいないか */) return true;
-            return false;
+			if (doAssistShip != null) return true;
+			return false;
         }
     }
     #endregion
