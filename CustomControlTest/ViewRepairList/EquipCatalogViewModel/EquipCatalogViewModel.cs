@@ -13,14 +13,15 @@ namespace ViewRepairList.EquipCatalog
 {
     class EquipCatalogViewModel
     {
-        //ソートクラス
+
+		//ソートクラス
 
 
-        //ウィンドウ設定
+		//ウィンドウ設定
 
 
-        //フィルタ
-        private EquipScrewFilter EquipScrewFilter { get; }
+		//フィルタ
+		private EquipScrewFilter EquipScrewFilter { get; }
         private EquipUsedNumFilter EquipUsedNumFilter { get; }
         private DevelopCostFilter DevelopCostFilter { get; }
         private SecondShipFilter SecondShipFilter { get; }
@@ -38,7 +39,7 @@ namespace ViewRepairList.EquipCatalog
 
 		}
 
-        public void Update()
+		public void Update()
         {
 
         }

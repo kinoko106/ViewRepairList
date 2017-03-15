@@ -209,6 +209,7 @@
     <Compile Include="CatalogFilter\EquipCatalogFilter.cs" />
     <Compile Include="Equip.cs" />
     <Compile Include="EquipCatalogViewModel\EquipCatalogViewModel.cs" />
+    <Compile Include="EquipCatalogViewModel\EquipTypeViewModel.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="RepairList.xaml.cs">
       <DependentUpon>RepairList.xaml</DependentUpon>

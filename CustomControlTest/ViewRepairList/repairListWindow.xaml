@@ -8,8 +8,9 @@
 		xmlns:kcvi="http://schemes.grabacr.net/winfx/2015/kancolleviewer/interactivity"
 		xmlns:kcvv="http://schemes.grabacr.net/winfx/2015/kancolleviewer/converters"
         xmlns:local="clr-namespace:ViewRepairList"
+        xmlns:catalogs="clr-namespace:ViewRepairList.EquipCatalog"
         mc:Ignorable="d"
-        d:DataContext="d:DesignInstance viewModels:"
+        d:DataContext="{d:DesignInstance catalogs:EquipCatalogViewModel}"
         Title="repairListWindow" Height="600" Width="800"
         Background="{DynamicResource ThemeBrushKey}"
         Foreground="{DynamicResource ActiveForegroundBrushKey}"
@@ -47,7 +48,7 @@
                                         </Style>
                                     </WrapPanel.Resources>
                                     <StackPanel>
-                                        <CheckBox x:Name="AllWepones" Content="すべて" />
+                                        <CheckBox x:Name="AllWepones" Content="すべて"/>
                                     </StackPanel>
                                     <WrapPanel x:Name="EquipCheckBox">
                                         <CheckBox x:Name="SmallPA" Content="小口径" Uid="PA" />
