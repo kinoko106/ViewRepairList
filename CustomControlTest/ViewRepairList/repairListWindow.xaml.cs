@@ -26,6 +26,10 @@ namespace ViewRepairList
     /// </summary>
     public partial class repairListWindow : Window
     {
+		//ウィンドウそのものもViewModel
+		//ウィンドウ内の各コントロール１つ１つもVewModel
+		//複数のコントロールをまとめた何某もViewModelで管理するっぽい
+
 		//List<Equip> json = new List<Equip>();
 		//int cnt = 0;
 		EquipCatalog.EquipCatalogViewModel equipCatalogViewModel;

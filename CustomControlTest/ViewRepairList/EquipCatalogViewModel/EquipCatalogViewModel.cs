@@ -8,6 +8,7 @@ using Grabacr07.KanColleWrapper.Models;
 //using Grabacr07.KanColleViewer.Models;
 //using Grabacr07.KanColleViewer.Models.Settings;
 using Grabacr07.KanColleWrapper;
+using ViewRepairList.EquipCatalogViewModel;
 
 namespace ViewRepairList.EquipCatalog
 {
@@ -18,8 +19,7 @@ namespace ViewRepairList.EquipCatalog
 
 
 		//ウィンドウ設定
-
-
+		public List<EquipTypeViewModel> EquipTypes;//repairListWindow本体に直接バインド
 		//フィルタ
 		private EquipScrewFilter EquipScrewFilter { get; }
         private EquipUsedNumFilter EquipUsedNumFilter { get; }
@@ -37,6 +37,7 @@ namespace ViewRepairList.EquipCatalog
 			this.DevelopCostFilter = new DevelopCostFilter(this.Update, devMaterials);
 			this.SecondShipFilter = new SecondShipFilter(this.Update,fleets,ships);
 
+			//EquipTypes リスト初期化
 		}
 
 		public void Update()

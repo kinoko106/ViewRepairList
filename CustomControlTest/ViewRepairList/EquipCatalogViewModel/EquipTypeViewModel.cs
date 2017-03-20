@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ViewRepairList.EquipCatalogViewModel
 {
+	//チェックボックスにバインド
 	class EquipTypeViewModel : ViewModel
 	{
 		public Action SelectionChangedAction { get; set; }
